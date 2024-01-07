@@ -31,13 +31,19 @@ $config['logfile'] = 'error.log';
 // Mock the XML file path for testing
 $config['xmlfile'] = 'test_feed.xml';
 
-// Create a dynamic table and get the table name
-$tableName = createDynamicTable($config, $xml);
-echo "Dynamic table created: $tableName\n</br>";
+ // Create an instance of the XmlToDatabaseProcessor class
+ $processor = new XmlToDatabaseProcessor($config);
 
-// Insert data into the dynamic table
-insertDataIntoDynamicTable($config, $xml, $tableName);
-echo "Data successfully inserted into the dynamic table.\n";
+ // Create a dynamic table and get the table name
+ $tableName = $processor->createDynamicTable($xml);
+ echo "Dynamic table created: $tableName\n</br>";
+
+ // Insert data into the dynamic table
+ $processor->insertDataIntoDynamicTable($xml, $tableName);
+ echo "Data successfully inserted into the dynamic table.\n";
+
+ // Close the database connection
+ $processor->closeDatabase();
 
 echo "Test completed.\n";
 ?>
