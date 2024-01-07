@@ -26,7 +26,7 @@ This PHP script processes XML data, create new table based on the XML structure 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/masih-ahmadi/xml-to-mysql.git
+   git clone https://github.com/masih-ahmadi/XML-to-MySQL-Database-Processor.git
 
 ## Usage
 1. Edit the config.php file to set your database connection details and XML file path.
